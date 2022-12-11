@@ -10,9 +10,7 @@ git clone https://github.com/sonetlumiere-code/Roles-Angular-NodeJS-Backend.git
 npm install
 ```
 
-3. Set __.env__ file
-
-__.env__ example:
+3. Set __.env__ file, example:
 ```
 PORT=3002
 MONGODB_URI="mongodb://localhost:27017/roles-system"
@@ -24,18 +22,14 @@ JWT_EXP="200m"
 ```
 npm start
 ```
-
-Run dev mode:
 ```
 npm run dev
 ```
 
 5. Run linter:
-Check:
 ```
 npm run lint
 ```
-Fix:
 ```
 npm run lint:fix
 ```
