@@ -13,8 +13,8 @@ npm install
 3. Set __.env__ file, example:
 ```
 PORT=3002
-MONGODB_URI="mongodb://localhost:27017/roles-system"
-JWT_SECRET="my-super-secret-word"
+MONGODB_URL="mongodb://127.0.0.1:27017"
+DB_NAME="roles-system"
 JWT_EXP="200m"
 ```
 

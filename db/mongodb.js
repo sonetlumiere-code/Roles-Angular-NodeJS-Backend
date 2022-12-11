@@ -7,8 +7,6 @@ const mongoURL = process.env.mongoDB_URL
 const dbName = process.env.DB_NAME
 const dbURI = `${mongoURL}/${dbName}`
 
-console.log(dbURI)
-
 const dbOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
