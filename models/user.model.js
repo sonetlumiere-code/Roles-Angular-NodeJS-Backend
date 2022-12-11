@@ -1,8 +1,10 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const Roles = require('./role.model')
+import dotenv from 'dotenv'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import mongoose from 'mongoose'
+import Roles from './role.model'
+const { Schema } = mongoose
+dotenv.config()
 
 const userSchema = Schema({
   username: {
@@ -32,8 +34,14 @@ const userSchema = Schema({
     type: String
   },
   account: {
-    paymentDate: { type: Date, default: null },
-    plan: { type: String, default: 'free' }
+    paymentDate: {
+      type: Date,
+      default: null
+    },
+    plan: {
+      type: String,
+      default: 'free'
+    }
   }
 },
 {
@@ -92,7 +100,7 @@ userSchema.methods.generateJwt = function () {
     {
       _id: this._id,
       roles: this.roles,
-      db: 'kot'
+      db: process.env.DB_NAME
     },
     process.env.JWT_SECRET,
     {
@@ -101,4 +109,4 @@ userSchema.methods.generateJwt = function () {
   )
 }
 
-module.exports = mongoose.model('User', userSchema)
+export default mongoose.model('User', userSchema)
