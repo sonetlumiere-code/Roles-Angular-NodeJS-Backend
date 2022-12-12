@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import mongoose from 'mongoose'
-import Roles from './role.model'
+import Roles from './role.model.js'
 const { Schema } = mongoose
 dotenv.config()
 

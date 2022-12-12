@@ -1,4 +1,4 @@
-import Role from '../models/role.model.js'
+import Role from './role.model.js'
 
 export const initialSetup = {
   createRoles: async () => {

@@ -1,11 +1,9 @@
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import { initialSetup } from '../models/initial_setup.model.js'
+import { initialSetup } from '../models/initial_setup.js'
 dotenv.config()
 
-const mongoURL = process.env.mongoDB_URL
-const dbName = process.env.DB_NAME
-const dbURI = `${mongoURL}/${dbName}`
+const dbURI = `${process.env.mongoDB_URL}/${process.env.DB_NAME}`
 
 const dbOptions = {
   useNewUrlParser: true,
