@@ -36,7 +36,7 @@ export const userController = {
       (err, user) => {
         if (err) return res.status(404).json({ status: false, message: 'User record not found.' })
         if (!user) return res.status(404).json({ status: false, message: 'User record not found.' })
-        else return res.status(200).json({ status: true, user: _.pick(user, ['_id', 'email', 'username', 'account', 'roles']) })
+        else return res.status(200).json({ status: true, user: _.pick(user, ['_id', 'email', 'username', 'roles']) })
       }
     ).populate('roles')
   },
@@ -50,7 +50,7 @@ export const userController = {
     User.findByIdAndUpdate(userId, update, { new: true }, (err, userUpdated) => {
       if (err) return res.status(500).send({ message: 'Error al actualizar' })
       if (!userUpdated) return res.status(404).send({ message: 'No existe el usuario' })
-      return res.status(200).send({ user: _.pick(userUpdated, ['_id', 'email', 'username', 'account']) })
+      return res.status(200).send({ user: _.pick(userUpdated, ['_id', 'email', 'username']) })
     })
   }
 

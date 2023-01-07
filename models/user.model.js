@@ -21,27 +21,17 @@ const userSchema = Schema({
     lowercase: true,
     trim: true
   },
+  roles: [{
+    ref: 'Role',
+    type: Schema.Types.ObjectId
+  }],
   password: {
     type: String,
     required: 'Debes ingresar una contraseña',
     minlength: [4, 'La contraseña debe tener al menos 4 caracteres']
   },
-  roles: [{
-    ref: 'Role',
-    type: Schema.Types.ObjectId
-  }],
   saltSecret: {
     type: String
-  },
-  account: {
-    paymentDate: {
-      type: Date,
-      default: null
-    },
-    plan: {
-      type: String,
-      default: 'free'
-    }
   }
 },
 {
