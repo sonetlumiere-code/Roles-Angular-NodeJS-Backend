@@ -89,8 +89,7 @@ userSchema.methods.generateJwt = function () {
   return jwt.sign(
     {
       _id: this._id,
-      roles: this.roles,
-      db: process.env.DB_NAME
+      roles: this.roles
     },
     process.env.JWT_SECRET,
     {
