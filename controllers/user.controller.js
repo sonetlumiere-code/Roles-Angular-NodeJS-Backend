@@ -38,7 +38,7 @@ export const userController = {
         if (!user) return res.status(404).json({ status: false, message: 'User record not found.' })
         else return res.status(200).json({ status: true, user: _.pick(user, ['_id', 'email', 'username', 'roles']) })
       }
-    ).populate('roles')
+    )
   },
 
   updateUser: (req, res) => {

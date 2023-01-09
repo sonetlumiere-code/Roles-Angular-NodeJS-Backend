@@ -74,11 +74,9 @@ userSchema.pre('save', function (next) {
       if (role) {
         this.roles.push(role)
       }
-      next()
     })
-  } else {
-    next()
   }
+  next()
 })
 
 userSchema.methods.verifyPassword = function (password) {
