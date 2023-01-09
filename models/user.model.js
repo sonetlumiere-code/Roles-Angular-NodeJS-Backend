@@ -68,15 +68,15 @@ userSchema.pre('save', function (next) {
 userSchema.pre('save', function (next) {
   if (!this.roles.length) {
     Roles.findOne({ name: 'gold' }, (err, role) => {
-      if (err) {
-        console.log('pre-save role userSchema error: ' + err)
-      }
+      if (err) console.log('pre-save role userSchema error: ' + err)
       if (role) {
         this.roles.push(role)
       }
+      next()
     })
+  } else {
+    next()
   }
-  next()
 })
 
 userSchema.methods.verifyPassword = function (password) {
